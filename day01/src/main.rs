@@ -5,6 +5,7 @@ fn main() {
     let input = File::open("input.txt").unwrap();
     let reader = BufReader::new(input);
 
+    // parse input
     let mut left_list: Vec<u32> = Vec::new();
     let mut right_list: Vec<u32> = Vec::new();
 
@@ -21,6 +22,7 @@ fn main() {
         right_list.push(right);
     }
 
+    // prep lists
     left_list.sort();
     right_list.sort();
 
