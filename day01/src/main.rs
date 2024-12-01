@@ -42,11 +42,5 @@ fn main() {
         })
         .sum();
 
-    // let mut similarity = 0u32;
-    // for lnum in left_list {
-    //     let cnt = right_list.iter().filter(|n| **n == lnum).count() as u32;
-    //     similarity += cnt * lnum;
-    // }
-
     println!("Total similarity: {}", similarity);
 }
