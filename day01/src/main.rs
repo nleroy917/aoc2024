@@ -4,7 +4,7 @@ use std::io::{BufRead, BufReader};
 fn main() {
     let input = File::open("input.txt").unwrap();
     let reader = BufReader::new(input);
-    
+
     let mut left_list: Vec<u32> = Vec::new();
     let mut right_list: Vec<u32> = Vec::new();
 
@@ -25,20 +25,18 @@ fn main() {
     right_list.sort();
 
     // part 1 calculation
-    let tot: i32 = left_list.iter()
+    let tot: i32 = left_list
+        .iter()
         .zip(right_list.iter())
         .map(|(&left, &right)| i32::abs(left as i32 - right as i32))
         .sum();
-    
+
     println!("Total sum of pairwise elements: {}", tot);
 
     // part 2 calculation
     let mut similarity = 0u32;
     for lnum in left_list {
-        let cnt = right_list
-                        .iter()
-                        .filter(|n| **n == lnum)
-                        .count() as u32;
+        let cnt = right_list.iter().filter(|n| **n == lnum).count() as u32;
         similarity += cnt * lnum;
     }
 
