@@ -34,11 +34,19 @@ fn main() {
     println!("Total sum of pairwise elements: {}", tot);
 
     // part 2 calculation
-    let mut similarity = 0u32;
-    for lnum in left_list {
-        let cnt = right_list.iter().filter(|n| **n == lnum).count() as u32;
-        similarity += cnt * lnum;
-    }
+    let similarity: u32 = left_list
+        .iter()
+        .map(|lnum| {
+            let cnt = right_list.iter().filter(|rnum| **rnum == *lnum).count() as u32;
+            cnt * lnum
+        })
+        .sum();
+
+    // let mut similarity = 0u32;
+    // for lnum in left_list {
+    //     let cnt = right_list.iter().filter(|n| **n == lnum).count() as u32;
+    //     similarity += cnt * lnum;
+    // }
 
     println!("Total similarity: {}", similarity);
 }
