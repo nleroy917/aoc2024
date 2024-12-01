@@ -35,12 +35,10 @@ fn main() {
     // part 2 calculation
     let mut similarity = 0u32;
     for lnum in left_list {
-        let mut cnt = 0u32;
-        for rnum in right_list.iter() {
-            if lnum == *rnum {
-                cnt +=1;
-            }
-        }
+        let cnt = right_list
+                        .iter()
+                        .filter(|n| **n == lnum)
+                        .count() as u32;
         similarity += cnt * lnum;
     }
 
